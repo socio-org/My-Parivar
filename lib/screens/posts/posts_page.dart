@@ -48,7 +48,7 @@ class _PostPageState extends State<PostPage> {
 
   Future<void> fetchPosts() async {
     final url = Uri.parse(
-        'http://ec2-34-228-24-32.compute-1.amazonaws.com:8500/posts?orgId=1&page=0&size=20');
+        'http://ec2-18-208-225-72.compute-1.amazonaws.com:8500/posts?orgId=1&page=0&size=20');
     const username = 'user';
     const password = 'password';
     final credentials = base64Encode(utf8.encode('$username:$password'));
@@ -88,9 +88,9 @@ class _PostPageState extends State<PostPage> {
                   'https://franchisematch.com/wp-content/uploads/2015/02/john-doe.jpg',
               name: 'John Doe',
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
             _buildComponentSelector(),
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
             isLoading
                 ? Container(
                     margin: const EdgeInsets.only(top: 20),
