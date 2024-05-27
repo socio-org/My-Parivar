@@ -79,6 +79,9 @@ class _PostPageState extends State<PostPage> {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -118,6 +121,8 @@ class _PostPageState extends State<PostPage> {
   }
 
   Widget _buildComponentSelector() {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Container(

@@ -13,31 +13,36 @@ class UserPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen width
+    final double screenWidth = MediaQuery.of(context).size.width;
+
+    // Calculate sizes and padding based on screen width
+    final double padding = screenWidth * 0.04;
+    final double avatarRadius = screenWidth * 0.06;
+    final double iconSize = screenWidth * 0.06;
+    final double fontSize = screenWidth * 0.045;
+
     return Container(
-      height: 80,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
+      height: MediaQuery.of(context).size.height * 0.1,
+      padding: EdgeInsets.symmetric(horizontal: padding),
+      decoration: const BoxDecoration(
         color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-          ),
-        ],
+        boxShadow: [],
       ),
       child: Row(
         children: [
           // User image
           CircleAvatar(
             backgroundImage: NetworkImage(imageUrl),
-            radius: 24,
+            radius: avatarRadius,
           ),
-          const SizedBox(width: 18),
+          SizedBox(width: padding),
           // User name
           Expanded(
             child: Text(
               name,
-              style: const TextStyle(
-                fontSize: 16,
+              style: TextStyle(
+                fontSize: fontSize,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -47,13 +52,21 @@ class UserPreview extends StatelessWidget {
             onPressed: () {
               // Notification button action
             },
-            icon: SvgPicture.asset('assets/icons/message.svg'),
+            icon: SvgPicture.asset(
+              'assets/icons/message.svg',
+              width: iconSize,
+              height: iconSize,
+            ),
           ),
           IconButton(
             onPressed: () {
               // Messaging button action
             },
-            icon: SvgPicture.asset('assets/icons/bell.svg'),
+            icon: SvgPicture.asset(
+              'assets/icons/bell.svg',
+              width: iconSize,
+              height: iconSize,
+            ),
           ),
         ],
       ),

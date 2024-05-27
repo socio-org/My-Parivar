@@ -120,15 +120,20 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double iconSize = screenWidth * 0.05;
+    final double fontSize = screenWidth * 0.045;
+    final double padding = screenWidth * 0.04;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 1),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.only(top: 5),
+                margin: EdgeInsets.only(top: padding * 0.5),
                 width: double.infinity,
                 child: Row(
                   children: [
@@ -136,25 +141,27 @@ class _SearchPageState extends State<SearchPage> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios_new,
-                        size: 20,
+                        size: iconSize,
                       ),
                     ),
                     const SizedBox(width: 4),
-                    const Text(
+                    Text(
                       "Search",
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: fontSize * 1.3,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
               ),
               Container(
                 width: double.infinity,
-                margin: const EdgeInsets.only(top: 30),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 9.0, vertical: 4.0),
+                margin: EdgeInsets.only(top: padding * 0.55),
+                padding: EdgeInsets.symmetric(
+                    horizontal: padding, vertical: padding / 2),
                 child: Row(
                   children: [
                     Expanded(
@@ -187,6 +194,7 @@ class _SearchPageState extends State<SearchPage> {
                         icon: Icon(
                           Icons.filter_list,
                           color: isModalOpen ? Colors.white : Colors.black,
+                          size: iconSize,
                         ),
                       ),
                     ),
@@ -195,18 +203,18 @@ class _SearchPageState extends State<SearchPage> {
               ),
               Container(
                 width: double.infinity,
-                margin: const EdgeInsets.only(left: 10, top: 10),
-                child: const Text(
+                margin: EdgeInsets.only(left: padding, top: padding * 0.25),
+                child: Text(
                   "Search ‘Family name’ or ‘A member’",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: fontSize,
                     fontWeight: FontWeight.w500,
-                    color: Color.fromARGB(199, 145, 140, 140),
+                    color: const Color.fromARGB(199, 145, 140, 140),
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: padding),
               SizedBox(
                 width: double.infinity,
                 child: PillButtonGroup(
@@ -216,9 +224,7 @@ class _SearchPageState extends State<SearchPage> {
                   },
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: padding),
               Expanded(
                 child: ListView.builder(
                   itemCount: currentData.length,
@@ -227,13 +233,14 @@ class _SearchPageState extends State<SearchPage> {
                       member: currentData[index],
                       onClick: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  currentData[index].type == 'person'
-                                      ? const MemberPage()
-                                      : const FamilyPage(),
-                            ));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                currentData[index].type == 'person'
+                                    ? const MemberPage()
+                                    : const FamilyPage(),
+                          ),
+                        );
                       },
                     );
                   },
