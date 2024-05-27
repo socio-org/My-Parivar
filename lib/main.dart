@@ -63,6 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
         body: SafeArea(
       child: Stack(
@@ -87,48 +90,45 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          // Image
-
-          Container(
-            margin: const EdgeInsets.only(top: 200),
+          Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Center(
-                  child: Image.asset(
-                    'assets/logos/logo.png',
-                    height: 250,
-                    color: Colors.white,
-                    width: 250,
+                Expanded(
+                  child: FractionallySizedBox(
+                    heightFactor: 0.4,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/logos/logo.png',
+                        width: screenWidth * 0.6,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
                 Container(
-                    margin: const EdgeInsets.only(bottom: 100),
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(top: 20),
-                          child: const Center(
-                            child: Text(
-                              "Powered by",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
+                  padding: EdgeInsets.symmetric(vertical: screenHeight * 0.05),
+                  child: const Column(
+                    children: [
+                      Text(
+                        "Powered by",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
                         ),
-                        Container(
-                          child: const Center(
-                            child: Text("SOCIO",
-                                style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white)),
-                          ),
-                        )
-                      ],
-                    ))
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "SOCIO",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

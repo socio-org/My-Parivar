@@ -21,6 +21,7 @@ class MiniButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5),
+      height: MediaQuery.of(context).size.height * 0.065,
       decoration: BoxDecoration(
         color: selected
             ? AppTheme.navClickColor

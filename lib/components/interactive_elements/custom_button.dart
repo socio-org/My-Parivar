@@ -8,7 +8,8 @@ class MyButton extends StatelessWidget {
   final bool border;
   final double padding;
 
-  const MyButton({super.key, 
+  const MyButton({
+    super.key,
     required this.text,
     required this.onClick,
     required this.fillColor,
@@ -43,7 +44,7 @@ class MyButton extends StatelessWidget {
             text,
             style: TextStyle(
               color: textColor,
-              fontSize: 16.0,
+              fontSize: 14.0,
               fontWeight: FontWeight.w600,
             ),
           ),
