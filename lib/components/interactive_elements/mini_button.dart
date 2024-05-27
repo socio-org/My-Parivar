@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mera_pariwar/themes/themes.dart';
-import 'package:multi_image_layout/multi_image_layout.dart';
 
 class MiniButton extends StatelessWidget {
   final String iconpath;
@@ -21,7 +20,7 @@ class MiniButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5),
-      height: MediaQuery.of(context).size.height * 0.065,
+      height: 40,
       decoration: BoxDecoration(
         color: selected
             ? AppTheme.navClickColor

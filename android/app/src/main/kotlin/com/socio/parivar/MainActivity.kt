@@ -1,4 +1,4 @@
-package com.example.mera_pariwar
+package com.socio.parivar
 
 import io.flutter.embedding.android.FlutterActivity
 
