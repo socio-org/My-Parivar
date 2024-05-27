@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "mera_pariwar",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "mera_pariwar (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "mera_pariwar (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "multi-image-viewer",
+            "cwd": "custom_package/multi-image-viewer",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "multi-image-viewer (profile mode)",
+            "cwd": "custom_package/multi-image-viewer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "multi-image-viewer (release mode)",
+            "cwd": "custom_package/multi-image-viewer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
