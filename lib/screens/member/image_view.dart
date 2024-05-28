@@ -12,7 +12,7 @@ class FullImageGalleryPage extends StatelessWidget {
         title: const Text(
           'Gallery',
           style: TextStyle(
-              fontSize: 22, color: Colors.black, fontWeight: FontWeight.w900),
+              fontSize: 22, color: Colors.black, fontWeight: FontWeight.w700),
         ),
       ),
       body: GridView.builder(

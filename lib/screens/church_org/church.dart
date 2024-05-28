@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:mera_pariwar/screens/church_org/church_member_view.dart';
 import 'package:mera_pariwar/themes/themes.dart';
-import 'package:multi_image_layout/multi_image_layout.dart';
+
 import 'package:mera_pariwar/models/church_model.dart';
 
 class Church extends StatefulWidget {

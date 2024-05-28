@@ -108,7 +108,6 @@ class _PostPageState extends State<PostPage> {
                       children: [
                         _buildPostsComponent(),
                         _buildFavoritesComponent(),
-                        const EventsPage(),
                         const Text('Groups'),
                         const Text('Images'),
                       ],
@@ -147,27 +146,19 @@ class _PostPageState extends State<PostPage> {
               },
             ),
             MiniButton(
-              iconpath: 'assets/icons/events.svg',
+              iconpath: 'assets/icons/grp.svg',
               selected: _currentPage == 2,
-              text: 'Events',
+              text: 'Groups',
               onClick: () {
                 _pageController.jumpToPage(2);
               },
             ),
             MiniButton(
-              iconpath: 'assets/icons/grp.svg',
-              selected: _currentPage == 3,
-              text: 'Groups',
-              onClick: () {
-                _pageController.jumpToPage(3);
-              },
-            ),
-            MiniButton(
               iconpath: 'assets/icons/home.svg',
-              selected: _currentPage == 4,
+              selected: _currentPage == 3,
               text: 'Images',
               onClick: () {
-                _pageController.jumpToPage(4);
+                _pageController.jumpToPage(3);
               },
             ),
           ],

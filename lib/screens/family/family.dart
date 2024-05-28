@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'package:mera_pariwar/models/family_model.dart';
 import 'package:mera_pariwar/screens/family/membersview.dart';
 import 'package:mera_pariwar/themes/themes.dart';
-import 'package:multi_image_layout/multi_image_layout.dart';
 
 import 'package:mera_pariwar/components/widgets/info_row.dart';
 import 'package:mera_pariwar/components/widgets/section_title.dart';

@@ -8,7 +8,6 @@ import 'package:mera_pariwar/components/widgets/gallery_row.dart';
 import 'package:mera_pariwar/models/member.dart';
 import 'package:mera_pariwar/screens/member/image_view.dart';
 import 'package:mera_pariwar/themes/themes.dart';
-import 'package:multi_image_layout/multi_image_layout.dart';
 
 import 'package:mera_pariwar/components/widgets/info_row.dart';
 import 'package:mera_pariwar/components/widgets/section_title.dart';

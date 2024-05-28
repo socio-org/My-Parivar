@@ -13,14 +13,15 @@ class BottomNavItem {
   });
 }
 
-class CustomBottomNavigationBar extends StatelessWidget {
+class BottomNavBar extends StatelessWidget {
   final List<BottomNavItem> items;
   final int currentIndex;
   final Color? backgroundColor;
   final Color? itemColor;
   final Color? selectedItemColor;
 
-  const CustomBottomNavigationBar({super.key, 
+  const BottomNavBar({
+    super.key,
     required this.items,
     required this.currentIndex,
     this.backgroundColor,

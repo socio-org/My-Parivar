@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive/hive.dart';
@@ -7,10 +9,12 @@ import 'package:mera_pariwar/components/post_components/like_share_pin.dart';
 import 'package:mera_pariwar/hive/fav.dart';
 import 'package:mera_pariwar/themes/themes.dart';
 import 'package:multi_image_layout/multi_image_layout.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:http/http.dart' as http;
 
 class PostComponent extends StatefulWidget {
   final List<String>? images;
@@ -67,6 +71,33 @@ class _PostComponentState extends State<PostComponent> {
   void dispose() {
     _youtubeController?.dispose();
     super.dispose();
+  }
+
+  Future<void> _shareContent() async {
+    if (widget.type == "VIDEO_EMBED" ||
+        widget.type == "DOC" &&
+            widget.fileUrl != null &&
+            widget.fileUrl!.isNotEmpty) {
+      Share.share("${widget.title}\n${widget.text}\n${widget.fileUrl}");
+    } else {
+      List<XFile> files = [];
+
+      if (widget.images != null && widget.images!.isNotEmpty) {
+        for (String imageUrl in widget.images!) {
+          var response = await http.get(Uri.parse(imageUrl));
+          var documentDirectory = await getTemporaryDirectory();
+          File file =
+              File('${documentDirectory.path}/${imageUrl.split('/').last}');
+          file.writeAsBytesSync(response.bodyBytes);
+          files.add(XFile(file.path));
+        }
+      }
+
+      Share.shareXFiles(
+        files,
+        text: "${widget.title}\n${widget.text}",
+      );
+    }
   }
 
   @override
@@ -298,9 +329,7 @@ class _PostComponentState extends State<PostComponent> {
                     }
                   });
                 },
-                onShared: () {
-                  Share.share("${widget.title}\n${widget.text}");
-                },
+                onShared: _shareContent,
                 onPinned: () {},
               ),
             ),
