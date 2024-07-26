@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:label="My Parivar"
+        android:label="My Church"
         android:name="${applicationName}"
         android:usesCleartextTraffic="false"
-        android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_adaptive_fore">
         <activity
             android:name=".MainActivity"
             android:exported="true"

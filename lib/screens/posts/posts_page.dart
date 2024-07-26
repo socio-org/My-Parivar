@@ -48,7 +48,7 @@ class _PostPageState extends State<PostPage> {
 
   Future<void> fetchPosts() async {
     final url = Uri.parse(
-        'http://ec2-18-208-225-72.compute-1.amazonaws.com:8500/posts?orgId=1&page=0&size=20');
+        'https://socio01.line.pm/api/v1/posts?orgId=1&page=0&size=20');
     const username = 'user';
     const password = 'password';
     final credentials = base64Encode(utf8.encode('$username:$password'));
